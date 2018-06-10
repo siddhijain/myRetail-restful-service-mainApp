@@ -5,20 +5,14 @@
  */
 package com.target.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.target.model.ProductDetails;
-import com.target.model.ProductPrice;
-import com.target.model.ProductPriceRepository;
 
 @Service
 public class ProductDetailsService {
-
-	@Autowired
-	private ProductPriceRepository productPriceRepository;
 
 	@Value("${endpoint.url}")
 	private String endpointURL;
@@ -28,12 +22,6 @@ public class ProductDetailsService {
 		RestTemplate restTemplate = new RestTemplate();
 		ProductDetails details = restTemplate.getForObject(url, ProductDetails.class);
 		return details;
-	}
-
-	public void updateProductDetailsById(String productId, double value, String currencyCode) {
-		ProductPrice priceDetails = productPriceRepository.findDocumentById(productId);
-		priceDetails.setCurrency(value);
-		priceDetails.setCurrencyType(currencyCode);
 	}
 
 }

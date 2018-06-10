@@ -49,7 +49,7 @@ public class ProductControllerTest {
 		MvcResult result = mockMvc.perform(requestBuilder).andReturn();
 
 		System.out.println(result.getResponse());
-		String expected = "{\"id\":\"2345\",\"name\":\"Headphones\",\"productPrice\":{\"value\":4.5,\"currency_code\":\"USD\"}}";
+		String expected = "{\"id\":\"2345\",\"name\":\"Headphones\",\"currentPrice\":{\"value\":4.5,\"currency_code\":\"USD\"}}";
 
 		JSONAssert.assertEquals(expected, result.getResponse()
 				.getContentAsString(), true);

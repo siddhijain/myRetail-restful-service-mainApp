@@ -38,19 +38,19 @@ public class ProductPrice {
 		this.id = productId;
 	}
 
-	public double getCurrency() {
+	public double getValue() {
 		return value;
 	}
 
-	public void setCurrency(double currency) {
-		this.value = currency;
+	public void setValue(double value) {
+		this.value = value;
 	}
 
-	public String getCurrencyType() {
+	public String getCurrencyCode() {
 		return currency_code;
 	}
 
-	public void setCurrencyType(String currency_code) {
+	public void setCurrencyCode(String currency_code) {
 		this.currency_code = currency_code;
 	}
 

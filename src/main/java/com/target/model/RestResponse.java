@@ -27,11 +27,11 @@ public class RestResponse {
 		this.name = name;
 	}
 
-	public ProductPriceResponse getProductPrice() {
+	public ProductPriceResponse getCurrentPrice() {
 		return currentPrice;
 	}
 
-	public void setProductPriceResponse(ProductPriceResponse currentPrice) {
+	public void setCurrentPrice(ProductPriceResponse currentPrice) {
 		this.currentPrice = currentPrice;
 	}
 

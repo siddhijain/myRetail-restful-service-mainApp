@@ -59,8 +59,8 @@ public class ProductController {
 		try {
 			response.setName(productDetailsTask.get().getProductName());
 			ProductPriceResponse priceResponse = new ProductPriceResponse();
-			priceResponse.setCurrency_code(productPriceTask.get().getCurrencyType());
-			priceResponse.setValue(productPriceTask.get().getCurrency());
+			priceResponse.setCurrency_code(productPriceTask.get().getCurrencyCode());
+			priceResponse.setValue(productPriceTask.get().getValue());
 			response.setProductPriceResponse(priceResponse);
 		} catch (InterruptedException | ExecutionException e) {
 			// TODO Auto-generated catch block
@@ -72,7 +72,7 @@ public class ProductController {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public void updateProductDetailsById(@PathVariable("id") String productId, @RequestBody RestResponse product) {
-		productDetailsService.updateProductDetailsById(productId, product.getProductPrice().getValue(), 
-				product.getProductPrice().getCurrency_code());
+		productPriceService.updateProductPriceById(productId, product.getCurrentPrice().getValue(), 
+				product.getCurrentPrice().getCurrency_code());
 	}
 }
