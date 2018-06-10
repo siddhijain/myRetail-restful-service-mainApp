@@ -61,7 +61,7 @@ public class ProductController {
 			ProductPriceResponse priceResponse = new ProductPriceResponse();
 			priceResponse.setCurrency_code(productPriceTask.get().getCurrencyCode());
 			priceResponse.setValue(productPriceTask.get().getValue());
-			response.setCurrentPriceResponse(priceResponse);
+			response.setCurrentPrice(priceResponse);
 		} catch (InterruptedException | ExecutionException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
