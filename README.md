@@ -18,5 +18,18 @@ For mainApp project ->
   mvn clean 
   mvn install
   mvn spring-boot-run
-  
+
+Use Postman or RestClient to test the service.
 http://localhost:8080/products/16483589
+
+Some Valid IDs:
+15117729
+16483589
+16696652
+15643793
+12345632
+11111111
+23223232
+55334455
+22222222
+33333333
