@@ -14,19 +14,19 @@ public class ErrorHandlingController{
 	@ExceptionHandler(MethodArgumentTypeMismatchException.class)
 	public ResponseEntity<ExceptionResponse> argsMismatchException(MethodArgumentTypeMismatchException e) throws MethodArgumentTypeMismatchException{
 		ExceptionResponse eR = new ExceptionResponse();
-		eR.setCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+		eR.setCode(HttpStatus.BAD_REQUEST.value());
 		eR.setMessage("Invalid product id input");
 		System.out.println(e);
-		return new ResponseEntity<ExceptionResponse>(eR,HttpStatus.INTERNAL_SERVER_ERROR);
+		return new ResponseEntity<ExceptionResponse>(eR,HttpStatus.BAD_REQUEST);
 	} 
 	
 	@ExceptionHandler(NullPointerException.class)
 	public ResponseEntity<ExceptionResponse> nullPointerException(NullPointerException e) throws NullPointerException{
 		ExceptionResponse eR = new ExceptionResponse();
-		eR.setCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+		eR.setCode(HttpStatus.NOT_FOUND.value());
 		eR.setMessage("Product details not found");
 		System.out.println(e);
-		return new ResponseEntity<ExceptionResponse>(eR,HttpStatus.INTERNAL_SERVER_ERROR);
+		return new ResponseEntity<ExceptionResponse>(eR,HttpStatus.NOT_FOUND);
 	}
 
 	@ExceptionHandler(Exception.class)
